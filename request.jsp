@@ -46,6 +46,7 @@ if(user == null){
 	}
 	input {
 		outline: none;
+		border: none;
 	}
 	.viewImgs{
 		width: 600px;

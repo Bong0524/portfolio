@@ -18,7 +18,7 @@ if(webtoonList == null){%>
 		<div style="overflow: hidden;">
 			<img alt="<%=i+1 %>번째 썸네일" src="img/<%=webtoon.getToon_id() %>/thumbnail.jpg">
 		</div>
-		<p style="padding: 10px; font-size: 1.1em; background-color: #eee"><%=webtoon.getTitle() %></p>
+		<p style="text-align:left; padding: 10px; font-size: 1em;"><%=webtoon.getTitle() %></p>
 	</div>
 	<%}%>
 </div>

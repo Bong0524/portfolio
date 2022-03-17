@@ -41,6 +41,7 @@ if(user == null||!user.getGrade().equals("작가")){
 	}
 	input {
 		outline: none;
+		border: none;
 	}
 	.viewImgs, #viewThumbnail{
 		width: 600px;

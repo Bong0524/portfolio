@@ -7,14 +7,14 @@ ArrayList<BannerInfo> topBannerList = (ArrayList<BannerInfo>)request.getAttribut
 if (topBannerList == null) {%>
 <jsp:forward page="BannerLoadPro?pos=top"/>
 <%}int ran = (int)(Math.random()*topBannerList.size());%>
-<div style="background: #ccc; width: 60px; height: 100%; float: right; border-left: 1px solid black">
+<div style="background: rgb(69, 56, 40); width: 60px; height: 100%; float: right; border-left: 1px solid black;">
 	<img id="upBanner" src="img/banner/arrow.png" width="60px;" height="50%" style="padding: 30px 0 20px; transform: scaleY(-1);" >
 	<img id="downBanner" src="img/banner/arrow.png" width="60px;" height="50%" style="padding: 30px 0 20px; border-top: 1px solid black">
 </div>
 <div id="bannerBox" style="width: 100%; height: 100%; cursor: pointer;">
-	<img alt="탑 배너칸" id="topBanner" height="100%" width="350px;" style="float: right;">
+	<img alt="탑 배너칸" id="topBanner" height="100%" width="365px;" style="float: right;">
 	<h1 id="topH" style="padding: 5px;"></h1>
-	<p id="topP" style="padding: 5px;"></p>
+	<p id="topP" style="padding: 5px; word-break:keep-all"></p>
 </div>
 <script>
 var num = <%=ran%>+1;

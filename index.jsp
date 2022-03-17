@@ -50,17 +50,21 @@ input {
 
 #toonListContainer {
 	display: flex;
+	justify-content: space-between;
 	flex-direction: row;
 	width: 100%;
 	flex-wrap: wrap;
+	margin-bottom: 50px;
 }
 
 .thumbnail {
 	font-weight: bold;
-	width: 33.33%;
+	width: 32.5%;
 	text-align: center;
 	cursor: pointer;
 	font-size: 1em;
+	border: 1px solid black;
+	margin-bottom: 10px;
 }
 
 .thumbnail img {
@@ -68,6 +72,7 @@ input {
 	transform: scale(1);
 	transition: all 0.3s ease-in-out;
 }
+
 .thumbnail:hover img{
 	transform: scale(1.1);
 }
@@ -93,14 +98,13 @@ input {
 	margin-top: 10px;
 }
 
-
-
 #logoutBtn {
-	background: rgb(69, 56, 40);
-	color: #ddd;
-	float: right;
-	padding: 4px;
 	border-radius: 3px;
+	width: 226px; 
+	height: 45px;	
+ 	font-weight: bold; 
+ 	font-size: 1.1em; 
+ 	border-radius: 2px;
 }
 
 #uploadBtn {
@@ -117,6 +121,7 @@ img {
 	cursor: pointer;
 	display: block;
 }
+
 </style>
 </head>
 <body>
@@ -124,7 +129,7 @@ img {
 		<jsp:include page="header.jsp" />
 		<div style="display: flex; justify-content: space-between;">
 			<section style="float: left; width: 700px">
-				<fieldset id="topBannderBox" style="margin-bottom: 10px; height: 200px; width: 700px;">
+				<fieldset id="topBannderBox" style="margin-bottom: 10px; height: 210px; width: 700px;">
 					<jsp:include page="bannerTop.jsp"/>
 				</fieldset>
 				<!-- 페이지가 home으로 지정되있는경우 -->
@@ -138,7 +143,7 @@ img {
 			</section>
 			<!-- 로그인 및 정보와 광고를 띄울 박스 -->
 			<nav style="width: 250px; margin-bottom: 10px">
-				<fieldset style="height: 200px; padding: 10px; width: 250px">
+				<fieldset style="height: 210px; padding: 10px; width: 100%">
 					<!-- 로그인 여부에 따른 로그인 박스 처리 -->
 					<%if (user != null) {%>
 					<jsp:include page="userBox.jsp" />
