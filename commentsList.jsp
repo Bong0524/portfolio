@@ -12,9 +12,9 @@ if(commentsList.size()==0){%>
 for(int i = 0 ; i < commentsList.size() ; i++){
 	CommentInfo comment = commentsList.get(i);
 %>
-	<div>
-		<span><%=comment.getWriter_name() %>(<%=comment.getWriter_id() %>)</span>
-		<span><%=comment.getWrdate() %></span>
-		<p><%=comment.getComments() %></p>	
+	<div style="border-bottom: 1px solid #aaa; padding: 15px 0;">
+		<p style="font-weight: bold;"><%=comment.getWriter_name() %>(<%=comment.getWriter_id() %>)</p>
+		<p style="margin: 8px 0;"><%=comment.getComments() %></p>	
+		<p style="color: #bbb; font-size: 0.9em;"><%=comment.getWrdate() %></p>
 	</div>
 <%}%>

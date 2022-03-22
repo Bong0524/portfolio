@@ -58,7 +58,7 @@ System.out.println(target);
 		<%} %>
 		</div>
 		
-		<div style="width: 600px; margin: 50px auto;">
+		<div style="width: 600px; margin: 30px auto;">
 				<!-- 댓글을 달 웹툰 페이지의 id -->
 				<input type="hidden" id="target" name="target" value="<%=toonpage.getToon_id()+"_"+toonpage.getPage_num()%>">
 				<input id="commentBtn" type="button" value="댓글 등록" style="margin-right: 5px; height: 80px; width: 80px; border-radius: 2px; background: rgb(69,56,40); color: #ddd;">

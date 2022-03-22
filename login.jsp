@@ -7,7 +7,8 @@ String back = request.getParameter("back");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>휴먼웹툰 로그인</title>
+<link rel="icon" href="img/logo/favicon.ico">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 	integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -88,14 +89,14 @@ input{
 #loginP{
 	font-size: 1.5em; 
 	margin: 15px; 
-	rgb(117,53,0);
+	color : rgb(117,53,0);
 }
 </style>
 </head>
 <body>
 <div id="container">
 	<form action="LoginPro" method="post" name="loginForm">
-		<a href="index.jsp?inPage=home"><img id="logo" alt="LOGO" src="img/logo.png"></a>
+		<a href="index.jsp?inPage=home"><img id="logo" alt="LOGO" src="img/logo/logo.png"></a>
 		<fieldset id="loginBox" >
 			<p id="loginP">로그인</p>
 			<input type="hidden" value="<%=back %>" name="back"><br>

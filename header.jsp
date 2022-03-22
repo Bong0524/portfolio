@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <style>
 header {
 	height: 50px;
@@ -53,8 +52,8 @@ header {
 }
 </style>
 <header>
-	<a href="index.jsp?inPage=home"> <img id="logo" alt="LOGO"
-		src="img/logo.png">
+	<a href="index.jsp?inPage=home"> 
+		<img id="logo" alt="LOGO" src="img/logo/logo.png">
 	</a>
 	<form id="searchForm" name="searchForm" action="SearchPro" method="get">
 		<select name="type" id="searchOption">

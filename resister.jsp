@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>휴먼웹툰 회원가입</title>
+<link rel="icon" href="img/logo/favicon.ico">
 <style type="text/css">
 * {
 	margin: 0;
@@ -79,7 +80,7 @@ input {
 	<div id="container">
 		<form action="ResisterPro" method="post" name="resisterForm">
 			<a href="index.jsp?inPage=home"><img id="logo" alt="LOGO"
-				src="img/logo.png"></a>
+				src="img/logo/logo.png"></a>
 			<fieldset id="resisterBox">
 				<div style="text-align: left;">
 					<p class="label">아이디</p>
