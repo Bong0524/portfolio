@@ -50,13 +50,10 @@ input {
 
 #toonListContainer {
 	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
 	width: 100%;
 	flex-wrap: wrap;
 	margin-bottom: 50px;
 }
-
 .thumbnail {
 	font-weight: bold;
 	width: 32.5%;
@@ -65,6 +62,11 @@ input {
 	font-size: 1em;
 	border: 1px solid black;
 	margin-bottom: 10px;
+	margin-right: 1.25%
+}
+
+.thumbnail:nth-child(3n){ 
+	margin-right: 0;
 }
 
 .thumbnail img {
@@ -157,12 +159,7 @@ img {
 				</fieldset>
 			</nav>
 		</div>
-		
-		<footer style="border-top: 1px solid #ddd; margin-top: 30px; padding: 20px; display: flex; justify-content:space-between; font-size: 0.8em; color: #aaa">
-			<span>ⓒ2022 HUMAN WEBTOON</span>
-			<span>웹 제작자 : 김경봉 (babycat6000@naver.com)</span>
-			<a style="font-weight: bold; cursor: pointer;" href="source.jsp">인용한 웹툰들의 출처</a>
-		</footer>
+		<jsp:include page="footer.jsp"/>
 	</div>
 </body>
 </html>

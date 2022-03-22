@@ -2,18 +2,24 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<style>
+td{
+	text-align: center;
+}
+</style>
 <%
 ArrayList<RequestInfo> requestList = (ArrayList<RequestInfo>)request.getAttribute("requestList");
 /* requestList가 null일 경우 requestList를 불러오기위해 RequestListPro를 호출한다. */
 if(requestList == null){
 %>
 <jsp:forward page="../RequestListPro" />
-<form name="responseForm" action="../ResponsePro" method="post" style=" width: 80%; text-align: center; margin: 30px auto;">
 <%}else{if(requestList.size() == 0){%>	
 <h2 style="width: 400px; margin: 80px auto;">
 	-- 연재 신청된 웹툰이 없습니다. --
 </h2>
 <%}else{%>
+<form name="responseForm" action="../ResponsePro" method="post" style=" width: 80%; text-align: center; margin: 30px auto;">
 	<table id="pageList" style=" border-spacing: 0; border-collapse: collapse; width: 100%;">
 		<tr>
 			<td width="100px">썸네일</td>
@@ -65,10 +71,6 @@ function reqToon(writer){
 /* 아이디칸의 내용이 바꼇을경우 체크박스를 작동시키고, 중복확인한다. */
 $(".toon_id").change(function() {
 	let inp = this
-	console.log($(this).val() == "");
-	$(this).val() == "" ?  
-			$(this).parent().next().children().first().prop("checked","false") :
-			$(this).parent().next().children().first().prop("checked","true");
 	$.ajax({
 		type : "post",
 		url : "http://localhost:8081/webtoon/ToonOverlap",
@@ -80,7 +82,13 @@ $(".toon_id").change(function() {
 		}
 	})
 })
+/* 아이디칸 입력시 자동 체크 */
+$(".toon_id").keydown(function() {
+	$(this).parent().next().children().first().prop("checked","true");
+})
 
+
+/* 체크시 사용불가 전환 및 체크해제시 아이디칸 초기화 */
 $(".checkBox").change(function(){
 	if($(this).is(":checked")){
 		$(this).parent().prev().children().last().text("사용불가");
@@ -90,6 +98,7 @@ $(".checkBox").change(function(){
 	}
 });
 
+/* 체크된 항목의 한에 유효성 검사 및 서브밋*/
 var checkBox = document.getElementsByClassName("checkBox");
 $(".responseBtn").click(function(e) {
 	e.preventDefault;
