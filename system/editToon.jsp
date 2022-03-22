@@ -1,3 +1,4 @@
+<%@page import="com.humanwebtoon.vo.UserInfo"%>
 <%@page import="com.humanwebtoon.vo.ToonpageInfo"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.humanwebtoon.vo.WebtoonInfo"%>
@@ -41,9 +42,10 @@ img{
 </head>
 <body>
 <%
+UserInfo user = (UserInfo) session.getAttribute("user");
 WebtoonInfo webtoon = (WebtoonInfo) request.getAttribute("webtoon");
 ArrayList<ToonpageInfo> toonpageList = (ArrayList<ToonpageInfo>)request.getAttribute("toonpageList");
-if(webtoon!=null){
+if(webtoon != null || !(user.getGrade().equals("관리자"))){
 %>
 <form action="EditToonPro" method="post" name="editForm" enctype="multipart/form-data">
 	<fieldset style="margin-bottom: 20px; position: relative;">
@@ -98,6 +100,7 @@ if(webtoon!=null){
 	</div>
 </form>
 <script type="text/javascript">
+	console.log("<%=user.getGrade()%>");
 	opener.location.reload();
 	/* 첨부밭은 썸네일을 미리 볼수 있도록 뿌려주는 함수 */
 	var thumbnail = document.getElementById("thumbnail");
@@ -120,7 +123,9 @@ if(webtoon!=null){
 </script>
 </body>
 <%}else{%>
-<script>opener.location.reload();close();</script>
+<script>
+	opener.location.reload();close();
+</script>
 <%}%>
 
 </html>

@@ -26,20 +26,21 @@ System.out.println(target);
 <meta charset="UTF-8">
 <title><%=toonpage.getPage_num()%>화.&nbsp;<%=toonpage.getTitle() %></title>
 <style type="text/css">
-	* {
+* {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;.
-	}
-	#container{
-		width: 960px;
-		margin: 0 auto;
-	}
-	
-	#toonImage{
+	box-sizing: border-box;
+}
+#container{
+	width: 960px;
+	margin: 0 auto;
+}
+#toonImage{
 		width: 600px;
 		margin: 0 auto;
-	}
+}
+	input {
+	cursor: pointer;
 }
 </style>
 </head>
@@ -64,7 +65,7 @@ System.out.println(target);
 				<input id="commentBtn" type="button" value="댓글 등록" style="margin-right: 5px; height: 80px; width: 80px; border-radius: 2px; background: rgb(69,56,40); color: #ddd;">
 				<textarea id="comment" name="comment" style="resize: none; vertical-align: bottom; padding: 5px; width: 509px; height: 80px;"></textarea>
 		</div>
-		<div id="commentsBox" style="margin: 0 auto 150px; width: 600px">
+		<div id="commentsBox" style="margin: 0 auto 100px; width: 600px">
 			<%if(commentsList!=null){ %>
 			<jsp:include page="commentsList.jsp"/>
 			<%}else{ %>
