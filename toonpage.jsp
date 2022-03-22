@@ -39,8 +39,21 @@ System.out.println(target);
 		width: 600px;
 		margin: 0 auto;
 }
-	input {
+input {
 	cursor: pointer;
+}
+.controlBtn{
+	margin: 5px;
+	width: 100px;
+}
+#control{
+	width: 120px; 
+	position: fixed; 
+	background-color: #ccc; 
+	padding: 5px; 
+	border-radius: 10px; 
+	right: 30px; 
+	top: 400px;
 }
 </style>
 </head>
@@ -57,6 +70,14 @@ System.out.println(target);
 		<%for(int i = 0 ; i < imgs.length-1 ; i++) {%>
 			<img alt="<%=i+1 %>페이지" src="img/<%=toonpage.getToon_id()%>/<%=toonpage.getPage_num()%>/<%=imgs[i].getName()%>"style="width: 600px;" >
 		<%} %>
+		</div>
+		
+		<!-- 웹툰 리모컨 -->
+		<div id="control" style="">
+			<input class="controlBtn" type="button" value="목록" onclick="location.href = 'WebtoonPro?toon=<%=toonpage.getToon_id()%>'">
+			<input class="controlBtn controlBtn" type="button" value="다음화">
+			<input class="controlBtn controlBtn" type="button" value="이전화">
+			<input class="controlBtn" type="button" value="홈으로" onclick="location.href ='index.jsp?inPage=home'">
 		</div>
 		
 		<div style="width: 600px; margin: 30px auto;">
@@ -78,6 +99,33 @@ System.out.println(target);
 		<jsp:include page="footer.jsp"/>
 	</div>
 	<script type="text/javascript">
+	
+	/* 리모컨 */
+	var now = "<%=toonpage.getPage_id()%>";
+	$(".controlBtn").click(function(e) {
+		e.preventDefault;
+		$.ajax({
+			type : "post",
+			url : "http://localhost:8081/webtoon/WebtoonControlPro",
+			data : {
+				how : $(this).val(),
+				now : now
+			},
+			success : function(data) {
+				
+			}
+			error:function(){
+				alert($(this).val());
+			}
+		})
+	})
+	
+	
+	
+	
+	
+	
+	
 	/* 로그인시 다시 이페이지로 오기위해 주소를 저장한다. */
 	/* 주소창의 특수문자는 없어지기때문에 인코딩해서 보낸다. */
 	/* 로그인하지 않은 경우 댓글창을 비활성화 시키고 클릭시 로그인을 권유한다 */  

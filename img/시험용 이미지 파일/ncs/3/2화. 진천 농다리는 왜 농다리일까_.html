@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://localhost:8081/webtoon/ToonPage?toon=jinch&page=2 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="./2화. 진천 농다리는 왜 농다리일까__files/jquery.min.js.다운로드" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<title>2화.&nbsp;진천 농다리는 왜 농다리일까?</title>
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+#container{
+	width: 960px;
+	margin: 0 auto;
+}
+#toonImage{
+		width: 600px;
+		margin: 0 auto;
+}
+	input {
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+	<div id="container">
+		
+<style>
+header {
+	height: 50px;
+	margin: 20px 0;
+}
+
+#logo {
+	float: left;
+	width: 300px;
+	height: 50px;
+}
+
+#searchForm {
+	border-radius: 3px;
+	cursor: pointer;
+	float: right;
+	height: 36px;
+	border: none;
+	overflow: hidden;
+	margin: 7px 0;
+	border: 3px solid rgb(69, 56, 40);
+}
+
+#searchBtn {
+	width: 60px;
+	height: 100%;
+	border: none;
+	background: rgb(69, 56, 40);
+	color: #ddd;
+	font-size: 1em;
+	vertical-align: bottom;
+}
+
+#searchBox {
+	border: none;
+	outline: none;
+	padding: 5px;
+	height: 100%;
+	font-size: 1em;
+	width: 250px;
+	vertical-align: bottom;
+}
+
+#searchOption {
+	border: none;
+	height: 100%;
+	outline: none;
+	font-size: 1em;
+	width: 60px;
+}
+</style>
+<header>
+	<a href="http://localhost:8081/webtoon/index.jsp?inPage=home"> 
+		<img id="logo" alt="LOGO" src="./2화. 진천 농다리는 왜 농다리일까__files/logo.png">
+	</a>
+	<form id="searchForm" name="searchForm" action="http://localhost:8081/webtoon/SearchPro" method="get">
+		<select name="type" id="searchOption">
+			<option value="title">제목</option>
+			<option value="writer">작가</option>
+		</select><input id="searchBox" type="text" name="search"><input id="searchBtn" type="submit" value="검색">
+	</form>
+</header>
+		<div style="margin: 50px">
+			<h2 style="background: #eee; padding: 10px">2화.&nbsp;진천 농다리는 왜 농다리일까?</h2>
+			조회수 : 192
+			<span style="margin: 0 20px;">|</span>
+			등록일 : 2022-03-21
+		</div>
+		<div id="toonImage">
+		
+			<img alt="1페이지" src="./2화. 진천 농다리는 왜 농다리일까__files/1.jpg" style="width: 600px;">
+		
+			<img alt="2페이지" src="./2화. 진천 농다리는 왜 농다리일까__files/2.jpg" style="width: 600px;">
+		
+			<img alt="3페이지" src="./2화. 진천 농다리는 왜 농다리일까__files/3.jpg" style="width: 600px;">
+		
+		</div>
+		
+		<div style="width: 100px;position: fixed;height: 100px;background-color: #ccc;padding: 10px;border-radius: 10px;right: 0px;bottom: 100px;">
+			<input style="width: 100%" class="btn" type="button" value="목록">
+			<input class="btn" type="button" value="다음화">
+			<input class="btn" type="button" value="이전화">
+		</div>
+		
+		<div style="width: 600px; margin: 30px auto;">
+				<!-- 댓글을 달 웹툰 페이지의 id -->
+				<input type="hidden" id="target" name="target" value="jinch_2">
+				<input id="commentBtn" type="button" value="댓글 등록" style="margin-right: 5px; height: 80px; width: 80px; border-radius: 2px; background: rgb(69,56,40); color: #ddd;">
+				<textarea id="comment" name="comment" style="resize: none; vertical-align: bottom; padding: 5px; width: 509px; height: 80px;"></textarea>
+		</div>
+		<div id="commentsBox" style="margin: 0 auto 100px; width: 600px">
+			
+			
+
+
+
+
+	<div style="text-align: center;">
+		댓글이 아직 없습니다. 첫번째 댓글을 달아보세요!
+	</div>
+
+<script type="text/javascript">
+
+function deleteComm(target) {
+	if(confirm("해당 댓글을 삭제하시겠습니까?")){
+		$.ajax({
+			type:"post",
+			url:"http://localhost:8081/webtoon/CommentDeletePro",
+			data:{
+				target:target
+			},
+			success: function(){
+				location.reload();
+			},
+			error: function(){
+				alert("오류");
+			}
+		})
+	}
+}
+
+</script>
+
+			
+		</div>
+		
+    
+<footer style="border-top: 1px solid #ddd; margin-top: 30px; padding: 20px; display: flex; justify-content:space-between; font-size: 0.8em; color: #aaa">
+	<span>ⓒ2022 HUMAN WEBTOON</span>
+	<span>웹 제작자 : 김경봉 (babycat6000@naver.com)</span>
+	<a style="font-weight: bold; cursor: pointer; color: black; text-decoration: none;" href="http://localhost:8081/webtoon/source.jsp" target="_blank">인용한 웹툰들의 출처</a>
+</footer>
+	</div>
+	<script type="text/javascript">
+	/* 로그인시 다시 이페이지로 오기위해 주소를 저장한다. */
+	/* 주소창의 특수문자는 없어지기때문에 인코딩해서 보낸다. */
+	/* 로그인하지 않은 경우 댓글창을 비활성화 시키고 클릭시 로그인을 권유한다 */  
+	
+	/* 댓글 전송 ajax */
+	$("#commentBtn").click(function() {
+		$.ajax({
+			type:"post",
+			url:"http://localhost:8081/webtoon/CommentPro",
+			data:{
+				target:$("#target").val(),
+				comment:$("#comment").val()
+			},
+			success: function(){
+				location.reload();
+			},
+			error: function(){
+				alert("오류");
+			}
+		});
+	})
+	</script>
+	
+<iframe src="./2화. 진천 농다리는 왜 농다리일까__files/sources.html" allow="camera" style="display: none;"></iframe><iframe src="./2화. 진천 농다리는 왜 농다리일까__files/audiosources.html" allow="microphone" style="display: none;"></iframe></body><div id="vimeo-record-extension"></div></html>
