@@ -107,6 +107,13 @@ if(webtoon!=null){
 	$(".btn").click(function(e) {
 		e.preventDefault;
 		if($(this).val() == "닫기") return close();
+		if($(this).val() == "웹툰삭제") {
+			let size = <%=toonpageList.size()%>;
+			if(size > 0){
+				alert("모든 화를 삭제한 후에 웹툰을 삭제 할 수 있습니다.");
+				return;
+			}
+		}
 		$("#req").val($(this).val());
 		editForm.submit();
 	})
