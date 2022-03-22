@@ -126,6 +126,7 @@ input::-webkit-inner-spin-button {
 			</div>
 			<div id="viewBox"></div>
 		</form>
+		
 		<script type="text/javascript">
 		
 		/* 첨부밭은 썸네일을 미리 볼수 있도록 뿌려주는 함수 */
@@ -177,6 +178,7 @@ input::-webkit-inner-spin-button {
 			confirm("정말 완료 하시겠습니까? 신청후 수정 할 수 없으며, 신청후 관리자가 처리하기 전에는 추가 신청 할 수 없습니다.") ? requestForm.submit() : ""; 
 		}
 		</script>
+		<jsp:include page="footer.jsp"/>
 	</div>
 </body>
 </html>

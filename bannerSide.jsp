@@ -10,8 +10,7 @@ if(sideBannerList == null){
 <%} 
 int ran = (int)(Math.random()*sideBannerList.size());
 %>
-<img alt="사이드 배너칸" id="sideBannder" width="100%">
-
+<img alt="사이드 배너칸" id="sideBannder" width="100%" style="cursor: pointer;">
 <script>
 	var ran = <%=ran%>+1;
 	$("#sideBannder").attr("src","img/banner/side"+ran+".jpg");

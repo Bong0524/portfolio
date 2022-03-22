@@ -184,7 +184,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 				confirm("정말 완료 하시겠습니까? 삭제를 원하실 경우 관리자에게 요청해야 합니다.") ? uploadForm.submit(): "";
 			}
 		</script>
+		<jsp:include page="footer.jsp"/>
 	</div>
-
 </body>
 </html>

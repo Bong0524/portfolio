@@ -11,90 +11,45 @@ if (topBannerList == null) {%>
 	<img id="upBanner" src="img/banner/arrow.png" width="60px;" height="50%" style="padding: 30px 0 20px; transform: scaleY(-1);" >
 	<img id="downBanner" src="img/banner/arrow.png" width="60px;" height="50%" style="padding: 30px 0 20px; border-top: 1px solid black">
 </div>
-<div id="bannerBox" style="width: 100%; height: 100%; cursor: pointer;">
-	<img alt="탑 배너칸" id="topBanner" height="100%" width="365px;" style="float: right;">
-	<h1 id="topH" style="padding: 5px;"></h1>
-	<p id="topP" style="padding: 5px; word-break:keep-all"></p>
+<div id="bannerBox" style="width: 636px; height: 100%; overflow: hidden;">
+	<ul id="bannerScroll">
+		<li style="height: 206px; width: 100%;" onclick="location.href = '<%=topBannerList.get(0).getLink()%>'">
+			<img alt="탑 배너칸" height="100%" width="365px;" style="float: right;" src="img/banner/top1.jpg">
+			<h1 style="padding: 5px; font-size: 1.3em"><%=topBannerList.get(0).getTitle()%></h1>
+			<p style="padding: 5px; word-break:keep-all"><%=topBannerList.get(0).getIntro()%></p>
+		<li>
+		<li style="height: 206px; width: 100%;" onclick="location.href = '<%=topBannerList.get(1).getLink()%>'">
+			<img alt="탑 배너칸" height="100%" width="365px;" style="float: right;" src="img/banner/top2.jpg">
+			<h1 style="padding: 5px; font-size: 1.3em"><%=topBannerList.get(1).getTitle()%></h1>
+			<p style="padding: 5px; word-break:keep-all"><%=topBannerList.get(1).getIntro()%></p>
+		<li>
+		<li style="height: 206px; width: 100%;" onclick="location.href = '<%=topBannerList.get(2).getLink()%>'">
+			<img alt="탑 배너칸" height="100%" width="365px;" style="float: right;" src="img/banner/top3.jpg">
+			<h1 style="padding: 5px; font-size: 1.3em"><%=topBannerList.get(2).getTitle()%></h1>
+			<p style="padding: 5px; word-break:keep-all"><%=topBannerList.get(2).getIntro()%></p>
+		<li>
+	</ul>
 </div>
 <script>
-var num = <%=ran%>+1;
-var min = 1;
-var max = <%=topBannerList.size()%>;
+/* 랜덤 배너 */
+var scroll = Math.floor(Math.random()*3);
+$("#bannerScroll").css("marginTop" ,scroll*(-206)+"px" );
+/* 업버튼 눌렀을경우 배너 변경 */
+$("#upBanner").click(function(e){
+	scroll >= 2 ? scroll = 0 : scroll++;
+	$("#bannerScroll").animate({ marginTop : scroll*(-206)+"px" },1000);
+});
+/* 다운버튼 눌렀을경우 배너 변경 */
+$("#downBanner").click(function(e){
+	scroll <= 0 ? scroll = 2 : scroll--;
+	$("#bannerScroll").animate({ marginTop : scroll*(-206)+"px" },1000);
+});
+/* 10초마다 배너 자동변경 */
+setInterval(function() { 
+	scroll >= 2 ? scroll = 0 : scroll++;
+	$("#bannerScroll").animate({ marginTop : scroll*(-206)+"px" },1000);
+}, 10000)
 
-var topH;
-var topH1;
-var topH2;
-var topH3;
 
-<%for(int i = 0 ; i < topBannerList.size() ; i++){%>
-topH<%=i+1%> = "<%=topBannerList.get(i).getTitle()%>";
-<%}%>
 
-var topP;
-var topP1;
-var topP2;
-var topP3;
-
-<%for(int i = 0 ; i < topBannerList.size() ; i++){%>
-topP<%=i+1%> = "<%=topBannerList.get(i).getIntro()%>";
-<%}%>
-
-var link;
-var link1;
-var link2;
-var link3;
-
-<%for(int i = 0 ; i < topBannerList.size() ; i++){%>
-	link<%=i+1%> = "<%=topBannerList.get(i).getLink()%>";
-<%}%>
-
-$("#topBanner").attr("src","img/banner/top"+num+".jpg");
-$("#bannerBox").attr("onclick","location.href='<%=topBannerList.get(ran).getLink()%>'");
-$("#topH").text("<%=topBannerList.get(ran).getTitle()%>")
-$("#topP").text("<%=topBannerList.get(ran).getIntro()%>")
-
-$("#upBanner").click(function(){
-	num >= max ? num = min : num++;
-	
-	if(num == 1) {
-		link = link1;
-		topH = topH1;
-		topP = topP1;
-	}else if(num == 2) {
-		link = link2;
-		topH = topH2;
-		topP = topP2;
-	}else if(num == 3) {
-		link = link3;
-		topH = topH3;
-		topP = topP3;
-	}
-	
-	$("#topBanner").attr("src","img/banner/top"+num+".jpg");
-	$("#bannerBox").attr("onclick","location.href='"+link+"'");
-	$("#topH").text(topH);
-	$("#topP").text(topP);
-})
-$("#downBanner").click(function(){
-	num <= min ? num = max : num--;
-	
-	if(num == 1) {
-		link = link1;
-		topH = topH1;
-		topP = topP1;
-	}else if(num == 2) {
-		link = link2;
-		topH = topH2;
-		topP = topP2;
-	}else if(num == 3) {
-		link = link3;
-		topH = topH3;
-		topP = topP3;
-	}
-	
-	$("#topBanner").attr("src","img/banner/top"+num+".jpg");
-	$("#bannerBox").attr("onclick","location.href='"+link+"'");
-	$("#topH").text(topH);
-	$("#topP").text(topP);
-})
 </script>

@@ -120,7 +120,6 @@ input {
 }
 
 img {
-	cursor: pointer;
 	display: block;
 }
 
@@ -132,7 +131,7 @@ img {
 		<jsp:include page="header.jsp" />
 		<div style="display: flex; justify-content: space-between;">
 			<section style="float: left; width: 700px">
-				<fieldset id="topBannderBox" style="margin-bottom: 10px; height: 210px; width: 700px;">
+				<fieldset id="topBannderBox" style="margin-bottom: 10px; height: 210px; width: 700px; cursor: pointer;">
 					<jsp:include page="bannerTop.jsp"/>
 				</fieldset>
 				<!-- 페이지가 home으로 지정되있는경우 -->

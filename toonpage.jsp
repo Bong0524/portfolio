@@ -74,6 +74,7 @@ System.out.println(target);
 			</jsp:forward>
 			<%} %>
 		</div>
+		<jsp:include page="footer.jsp"/>
 	</div>
 	<script type="text/javascript">
 	/* 로그인시 다시 이페이지로 오기위해 주소를 저장한다. */

@@ -19,7 +19,7 @@ if (sideBannerList == null) {%>
 		margin: 5px;
 }
 .topBannerForms{
-	width: 750px; 
+	width: 700px; 
 	text-align: center; 
 	background: white; 
 	position: relative; 
@@ -28,14 +28,14 @@ if (sideBannerList == null) {%>
 }
 .topBannerTitles{
 	border: none; 
-	width: 310px; 
+	width: 273px; 
 	border-bottom: 1px solid #ccc; 
-	font-size: 1.5em; 
+	font-size: 1.3em; 
 	font-weight: bold; 
 	padding: 0 10px;
 }
 .topBannerIntro{
-	width: 310px; 
+	width: 273px; 
 	height: 150px; 
 	border: none; 
 	outline: none; 
