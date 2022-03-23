@@ -31,6 +31,6 @@ if(webtoonList == null){%>
 <script type="text/javascript">
 $(".clickToon").click(function(e) {
 	e.preventDefault;
-	window.open("../EditReadPro?toon_id="+$(this).attr("id")+"", "ReadReq", "width=700,height=800, left=200,top=100");
+	window.open("../EditReadPro?toon_id="+$(this).attr("id")+"", "ReadReq", "width=720,height=800, left=200,top=100");
 })
 </script>

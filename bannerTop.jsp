@@ -29,12 +29,12 @@ var size = <%=topBannerList.size()%>;
 var scroll = Math.floor(Math.random()*size);
 $("#bannerScroll").css("marginTop" ,scroll*(-206)+"px" );
 /* 업버튼 눌렀을경우 배너 변경 */
-$("#upBanner").click(function(e){
+$("#downBanner").click(function(e){
 	scroll >= size-1 ? scroll = 0 : scroll++;
 	$("#bannerScroll").filter(":not(:animated)").animate({ marginTop : scroll*(-206)+"px" },1000);
 });
 /* 다운버튼 눌렀을경우 배너 변경 */
-$("#downBanner").click(function(e){
+$("#upBanner").click(function(e){
 	scroll <= 0 ? scroll = size-1 : scroll--;
 	$("#bannerScroll").filter(":not(:animated)").animate({ marginTop : scroll*(-206)+"px" },1000);
 });
