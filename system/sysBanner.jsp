@@ -52,7 +52,7 @@ if (sideBannerList == null) {%>
 	padding: 10px;
 }
 .topBannerArrowBox{
-	background: #ccc; 
+	background: rgb(69, 56, 40);
 	width: 60px; 
 	height: 100%; 
 	float: right; 

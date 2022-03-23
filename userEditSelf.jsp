@@ -1,7 +1,6 @@
 <%@page import="com.humanwebtoon.vo.UserInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%UserInfo user = (UserInfo)session.getAttribute("user"); %>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +48,7 @@ input {
 	margin: 30px 0 10px;
 }
 
-#resisterBox {
+#editBox {
 	margin: 30px auto 10px;
 	padding: 25px 30px;
 	width: 400px;
@@ -72,7 +71,19 @@ input {
 	color: red;
 	margin-left: 10px;
 }
+
+.btn {
+	background: rgb(69, 56, 40);
+	color: #ddd;
+	border-radius: 3px;
+	padding: 5px 15px;
+	width: 100px;
+	font-size: 1em;
+}
 </style>
+<%
+UserInfo user = (UserInfo) session.getAttribute("user");
+%>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 	integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -80,90 +91,55 @@ input {
 </head>
 <body>
 	<div id="container">
-		<form action="ResisterPro" method="post" name="resisterForm">
+		<form action="UserEditSelfPro" method="post" name="UserEditSelfForm">
 			<a href="index.jsp?inPage=home"><img id="logo" alt="LOGO"
 				src="img/logo/logo.png"></a>
-			<fieldset id="resisterBox">
-				<div style="text-align: left;">
+			<fieldset id="editBox">
+				<div style="text-align: left; margin-bottom: 20px;">
+					<p style="text-align: center; font-size: 1.5em">정보 수정</p>
 					<p class="label">아이디</p>
-					<input class="inputBox" type="text" name="id" id="id">
-					<p class="surely" id="idMessage"></p>
+					<input class="inputBox" type="text" value="<%=user.getId()%>"
+						disabled="disabled">
 					<p class="label">비밀번호</p>
-					<input class="inputBox" type="text" name="pw" id="pw">
-					<p class="surely" id="pwMessage"></p>
+					<input class="inputBox" type="text" name="pw" id="pw"
+						value="<%=user.getPw()%>">
+					<p class="surely"></p>
 					<p class="label">이름</p>
-					<input class="inputBox" type="text" name="name" id="name">
-					<p class="surely" id="nameMessage"></p>
+					<input class="inputBox" type="text" name="name" id="name"
+						value="<%=user.getName()%>">
+					<p class="surely"></p>
 				</div>
-				<input id="resisterBtn" type="button" value="회원가입">
+				<input id="updateBtn" class="btn" type="button" value="수정">
+				<input class="btn" type="reset" value="취소"> <input id="back"
+					class="btn" type="button"
+					onclick="location.href = 'index.jsp?inPage=home'" value="돌아가기">
 			</fieldset>
 		</form>
 	</div>
 	<script type="text/javascript">
-	var inputBox = document.getElementsByClassName("inputBox");
-	var surely = document.getElementsByClassName("surely");
-	var overlap;
-	/* 입력항목 유효성 검사 */
-	$("#resisterBtn").click(function(e) {
-		e.preventDefault();
-		/* 유효하지 않은 항목에 대한 메세지 출력 */
-		for(var i = 0 ; i < inputBox.length ; i++){
-		if(!inputBox[i].value){
-				surely[i].innerText = "필수 입력 항목입니다.";
-			}
-		}
-		/* 유효하지 않은 항목이 있으면 가입을 막는 구문 */
-		for(var i = 0 ; i < inputBox.length ; i++){
-			if(!inputBox[i].value){
-				inputBox[i].focus();
-				return;
-			}
-		}
-		if(overlap==1){
-			$("#id").focus()
-			return;
-		}
-		resisterForm.submit();
-	})
-	
-	
-	/* 입력/변경시 유효한 칸의 유도문 추가/제거 */
-	
-	$("#pw").change(function() {
-		$("#pwMessage").text($("#pw").val()!="" ? "":"필수 입력 항목입니다.");
-	})
-
-	$("#name").change(function() {
-		$("#nameMessage").text($("#name").val()!="" ? "":"필수 입력 항목입니다.");
-	})
-	
-	
-	/* 아이디 중복체크 및 유효성 검사 */
-	$("#id").change(function() {
-		$.ajax({
-			type:"post",
-			url:"http://localhost:8081/webtoon/IdOverlapPro",
-			data:{id:$("#id").val()},
-			success: function(data){
-				overlap = data;
-				if(overlap==1){
-					$("#idMessage").css("color", "red");
-					$("#idMessage").text("이미 존재하는 아이디입니다.");
-				}else{
-					$("#idMessage").css("color", "lime");
-					$("#idMessage").text("멋진 아이디로군요!");
+		var inputBox = document.getElementsByClassName("inputBox");
+		/* 입력항목 유효성 검사 */
+		$("#updateBtn").click(function(e) {
+			e.preventDefault();
+			/* 유효하지 않은 항목에 대한 메세지 출력 */
+			for (var i = 0; i < inputBox.length; i++) {
+				if (!inputBox[i].value) {
+					inputBox[i].nextElementSibling = "필수 입력 항목입니다.";
 				}
-				if($("#id").val()==""){
-					$("#idMessage").css("color", "red");
-					$("#idMessage").text("필수 입력 항목입니다.");
-				}
-			},
-			error:function(){
-				alert("오류");
 			}
-		});
-	});
-	
-</script>
+			/* 유효하지 않은 항목이 있으면 가입을 막는 구문 */
+			for (var i = 0; i < inputBox.length; i++) {
+				if (!inputBox[i].value) {
+					inputBox[i].focus();
+					return;
+				}
+			}
+			UserEditSelfForm.submit();
+		})
+		/* 입력/변경시 유효한 칸의 유도문 추가/제거 */
+		$(".inputBox").change(function() {
+			$(this).next().text($(this).val() != "" ? "" : "필수 입력 항목입니다.");
+		})
+	</script>
 </body>
 </html>

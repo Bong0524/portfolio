@@ -89,8 +89,8 @@ input{
 #loginP{
 	font-size: 1.5em; 
 	margin: 15px; 
-	color : rgb(117,53,0);
 }
+
 </style>
 </head>
 <body>

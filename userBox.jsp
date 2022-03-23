@@ -5,7 +5,7 @@
 <%
 UserInfo user = (UserInfo) session.getAttribute("user");
 %>
-<a href="#" style="float: right;">정보수정</a>
+<a href="userEditSelf.jsp" style="float: right;">정보수정</a>
 <p style="font-weight: bold"><%=user.getName()%>(<%=user.getGrade()%>)님</p>
 <p style="color: rgb(100, 100, 100); font-size: 0.8em"><%=user.getId()%></p>
 <%if(user.getGrade().equals("관리자")){%>

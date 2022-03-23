@@ -87,10 +87,10 @@ input {
 					<input class="inputBox" type="text" name="id" id="id">
 					<p class="surely" id="idMessage"></p>
 					<p class="label">비밀번호</p>
-					<input class="inputBox" type="text" name="pw" id="pw">
+					<input class="inputBox" type="password" name="pw" id="pw">
 					<p class="surely" id="pwMessage"></p>
 					<p class="label">비밀번호 확인</p>
-					<input class="inputBox" type="text" id="pwRe">
+					<input class="inputBox" type="password" id="pwRe">
 					<p class="surely" id="pwReMessage"></p>
 					<p class="label">이름</p>
 					<input class="inputBox" type="text" name="name" id="name">
