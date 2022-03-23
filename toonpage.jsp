@@ -75,8 +75,8 @@ input {
 		<!-- 웹툰 리모컨 -->
 		<div id="control" style="">
 			<input class="controlBtn" type="button" value="목록" onclick="location.href = 'WebtoonPro?toon=<%=toonpage.getToon_id()%>'">
-			<input class="controlBtn controlBtn" type="button" value="다음화">
-			<input class="controlBtn controlBtn" type="button" value="이전화">
+			<input class="controlBtn pageBtn" type="button" value="다음화">
+			<input class="controlBtn pageBtn" type="button" value="이전화">
 			<input class="controlBtn" type="button" value="홈으로" onclick="location.href ='index.jsp?inPage=home'">
 		</div>
 		
@@ -100,30 +100,25 @@ input {
 	</div>
 	<script type="text/javascript">
 	
-	/* 리모컨 */
+	/* 웹툰컨트롤러 */
 	var now = "<%=toonpage.getPage_id()%>";
-	$(".controlBtn").click(function(e) {
+	var how = "";
+	$(".pageBtn").click(function(e) {
+		how =  $(this).val()
 		e.preventDefault;
 		$.ajax({
 			type : "post",
 			url : "http://localhost:8081/webtoon/WebtoonControlPro",
 			data : {
-				how : $(this).val(),
+				how : how,
 				now : now
 			},
 			success : function(data) {
-				
-			}
-			error:function(){
-				alert($(this).val());
+				if(data == "none") alert(how+"가 존재하지 않습니다.");
+				else location.href = "ToonPage?toon=<%=toonpage.getToon_id()%>&page="+data+"";
 			}
 		})
 	})
-	
-	
-	
-	
-	
 	
 	
 	/* 로그인시 다시 이페이지로 오기위해 주소를 저장한다. */

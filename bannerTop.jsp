@@ -13,42 +13,36 @@ if (topBannerList == null) {%>
 </div>
 <div id="bannerBox" style="width: 636px; height: 100%; overflow: hidden;">
 	<ul id="bannerScroll">
-		<li style="height: 206px; width: 100%;" onclick="location.href = '<%=topBannerList.get(0).getLink()%>'">
-			<img alt="탑 배너칸" height="100%" width="365px;" style="float: right;" src="img/banner/top1.jpg">
-			<h1 style="padding: 5px; font-size: 1.3em"><%=topBannerList.get(0).getTitle()%></h1>
-			<p style="padding: 5px; word-break:keep-all"><%=topBannerList.get(0).getIntro()%></p>
+	<%for(int i = 0 ; i < topBannerList.size() ; i++){ 
+		if(!topBannerList.get(i).getLink().equals("") || topBannerList.get(i).getLink() != null){%>
+		<li style="height: 206px; width: 100%;" onclick="location.href = '<%=topBannerList.get(i).getLink()%>'">
+			<img alt="탑 배너칸" height="100%" width="365px;" style="float: right;" src="img/banner/<%=topBannerList.get(i).getBanner_id()%>.jpg">
+			<h1 style="padding: 5px; font-size: 1.3em"><%=topBannerList.get(i).getTitle()%></h1>
+			<p style="padding: 5px; word-break:keep-all"><%=topBannerList.get(i).getIntro()%></p>
 		<li>
-		<li style="height: 206px; width: 100%;" onclick="location.href = '<%=topBannerList.get(1).getLink()%>'">
-			<img alt="탑 배너칸" height="100%" width="365px;" style="float: right;" src="img/banner/top2.jpg">
-			<h1 style="padding: 5px; font-size: 1.3em"><%=topBannerList.get(1).getTitle()%></h1>
-			<p style="padding: 5px; word-break:keep-all"><%=topBannerList.get(1).getIntro()%></p>
-		<li>
-		<li style="height: 206px; width: 100%;" onclick="location.href = '<%=topBannerList.get(2).getLink()%>'">
-			<img alt="탑 배너칸" height="100%" width="365px;" style="float: right;" src="img/banner/top3.jpg">
-			<h1 style="padding: 5px; font-size: 1.3em"><%=topBannerList.get(2).getTitle()%></h1>
-			<p style="padding: 5px; word-break:keep-all"><%=topBannerList.get(2).getIntro()%></p>
-		<li>
+		<%}}%>
 	</ul>
 </div>
 <script>
 /* 랜덤 배너 */
-var scroll = Math.floor(Math.random()*3);
+var size = <%=topBannerList.size()%>;
+var scroll = Math.floor(Math.random()*size);
 $("#bannerScroll").css("marginTop" ,scroll*(-206)+"px" );
 /* 업버튼 눌렀을경우 배너 변경 */
 $("#upBanner").click(function(e){
-	scroll >= 2 ? scroll = 0 : scroll++;
-	$("#bannerScroll").animate({ marginTop : scroll*(-206)+"px" },1000);
+	scroll >= size-1 ? scroll = 0 : scroll++;
+	$("#bannerScroll").filter(":not(:animated)").animate({ marginTop : scroll*(-206)+"px" },1000);
 });
 /* 다운버튼 눌렀을경우 배너 변경 */
 $("#downBanner").click(function(e){
-	scroll <= 0 ? scroll = 2 : scroll--;
-	$("#bannerScroll").animate({ marginTop : scroll*(-206)+"px" },1000);
+	scroll <= 0 ? scroll = size-1 : scroll--;
+	$("#bannerScroll").filter(":not(:animated)").animate({ marginTop : scroll*(-206)+"px" },1000);
 });
 /* 10초마다 배너 자동변경 */
 setInterval(function() { 
-	scroll >= 2 ? scroll = 0 : scroll++;
-	$("#bannerScroll").animate({ marginTop : scroll*(-206)+"px" },1000);
-}, 10000)
+	scroll >= size-1 ? scroll = 0 : scroll++;
+	$("#bannerScroll").filter(":not(:animated)").animate({ marginTop : scroll*(-206)+"px" },1000);
+}, 15000)
 
 
 
